@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home — Ayushman Shukla</title>
+  <title>Ayushman Shukla — Full Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -12,37 +12,75 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a class="nav-logo" href="index.html">ayushman.dev</a>
-    <div class="nav-links">
-      <a href="index.html" class="active">home</a>
-      <a href="about.html">about</a>
-      <a href="projects.html">projects</a>
-      <a href="connect.html">connect</a>
-    </div>
-  </nav>
+  <button class="sidebar-toggle" aria-label="Toggle menu">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <div class="sidebar-overlay"></div>
 
-  <main class="main-content">
-    <div class="hero">
+  <aside class="sidebar">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">
+        <img src="assets/profile.png" alt="Ayushman Shukla" />
+      </div>
+      <h2 class="sidebar-name">Ayushman Shukla</h2>
+      <p class="sidebar-role">Full Stack Developer</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#home" class="sidebar-link active" data-section="home">
+        <i class="ti ti-home"></i> Home
+      </a>
+      <a href="#skills" class="sidebar-link" data-section="skills">
+        <i class="ti ti-code"></i> Skills
+      </a>
+      <a href="#about" class="sidebar-link" data-section="about">
+        <i class="ti ti-user"></i> About
+      </a>
+      <a href="#experience" class="sidebar-link" data-section="experience">
+        <i class="ti ti-briefcase"></i> Experience
+      </a>
+      <a href="#projects" class="sidebar-link" data-section="projects">
+        <i class="ti ti-folder"></i> Projects
+      </a>
+      <a href="#contact" class="sidebar-link" data-section="contact">
+        <i class="ti ti-mail"></i> Contact
+      </a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://github.com/ayushman7985" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="ti ti-brand-github"></i>
+      </a>
+      <a href="mailto:shuklaayushman7@gmail.com" aria-label="Email">
+        <i class="ti ti-mail"></i>
+      </a>
+      <a href="tel:+917985980646" aria-label="Phone">
+        <i class="ti ti-phone"></i>
+      </a>
+      <a href="#home" aria-label="Home">
+        <i class="ti ti-world"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main class="page-content">
+
+    <section id="home" class="section hero">
       <div class="hero-eyebrow">Hello, World! <span class="cursor"></span></div>
       <h1>Ayushman<br><span>Shukla</span></h1>
-      <div class="hero-sub"><span class="highlight">Software Developer</span> . <span class="highlight">Full Stack Developer</span></div>
+      <div class="hero-sub"><span class="highlight">Software Developer</span> · <span class="highlight">Full Stack Developer</span></div>
       <div class="hero-desc">
         <p>Computer Science graduate passionate about building modern web applications and scalable backend systems.</p>
         <p>Experienced with Python, FastAPI, React.js, PostgreSQL, and Docker, with hands-on experience developing and deploying full-stack projects.</p>
         <p>Currently working as an SDE Intern at BharatScales, contributing to production-ready applications and API development.</p>
-        <p>Strong foundation in software engineering, problem-solving, and database design.</p>
-        <p>Focused on writing clean, maintainable code and continuously learning new technologies to build impactful solutions.</p>
       </div>
       <div class="hero-btns">
-        <a class="btn-primary" href="projects.html">View Projects</a>
-        <a class="btn-outline" href="connect.html">Let's Connect</a>
+        <a class="btn-primary" href="#projects">View Projects</a>
+        <a class="btn-outline" href="#contact">Let's Connect</a>
       </div>
-    </div>
+    </section>
 
-    <div class="divider"></div>
-
-    <div class="section">
+    <section id="skills" class="section">
       <div class="sec-label">// skills</div>
       <div class="sec-title">Technical Skills</div>
       <div class="skills-grid">
@@ -61,9 +99,6 @@
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">MongoDB (Basics)</span>
             <span class="skill-tag">Vector Databases (FAISS)</span>
-            <span class="skill-tag">Data Entry</span>
-            <span class="skill-tag">Data Validation</span>
-            <span class="skill-tag">Data Accuracy & Integrity</span>
           </div>
         </div>
         <div class="skill-group">
@@ -74,16 +109,6 @@
             <span class="skill-tag highlight">REST API Development</span>
             <span class="skill-tag">JWT Authentication</span>
             <span class="skill-tag">Role-Based Access Control</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">Testing & QA</div>
-          <div class="skill-tags">
-            <span class="skill-tag">API Testing (Postman)</span>
-            <span class="skill-tag">Functional Testing</span>
-            <span class="skill-tag">Data Validation</span>
-            <span class="skill-tag">Debugging</span>
-            <span class="skill-tag">SLA Monitoring</span>
           </div>
         </div>
         <div class="skill-group">
@@ -110,7 +135,6 @@
           <div class="skill-tags">
             <span class="skill-tag">Prompt Engineering</span>
             <span class="skill-tag">RAG</span>
-            <span class="skill-tag">AI Agents</span>
             <span class="skill-tag highlight">LangChain</span>
             <span class="skill-tag">OpenAI API</span>
             <span class="skill-tag">Gemini API</span>
@@ -122,65 +146,90 @@
             <span class="skill-tag highlight">Data Structures & Algorithms</span>
             <span class="skill-tag">OOP</span>
             <span class="skill-tag">DBMS</span>
-            <span class="skill-tag">Operating Systems</span>
             <span class="skill-tag">System Design Fundamentals</span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="divider"></div>
-
-    <div class="section">
-      <div class="sec-label">// education</div>
-      <div class="sec-title">Education</div>
-      <div class="edu-list">
-
-        <div class="edu-item">
-          <div class="edu-timeline">
-            <div class="edu-dot"></div>
-            <div class="edu-line"></div>
-          </div>
-          <div class="edu-body">
-            <div class="edu-header">
-              <div class="edu-school">Pranveer Singh Institute of Technology (AKTU), Kanpur</div>
-              <div class="edu-date">2026</div>
-            </div>
-            <div class="edu-degree">B.Tech in Computer Science and Engineering — <span class="edu-score">70%</span></div>
-          </div>
-        </div>
-
-        <div class="edu-item">
-          <div class="edu-timeline">
-            <div class="edu-dot"></div>
-          </div>
-          <div class="edu-body">
-            <div class="edu-header">
-              <div class="edu-school">Harmilap Mission School(CBSE), Kanpur</div>
-            </div>
-            <ul class="edu-entries">
-              <li>
-                <span>Intermediate (Class XII) — <span class="edu-score">72%</span></span>
-                <span class="edu-year">2021</span>
-              </li>
-              <li>
-                <span>High School (Class X) — <span class="edu-score">75%</span></span>
-                <span class="edu-year">2019</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
+    <section id="about" class="section">
+      <div class="sec-label">// about</div>
+      <div class="sec-title">About Me</div>
+      <div class="about-content">
+        <p>
+          Hello! I'm <strong class="highlight">Ayushman Shukla</strong>, a passionate Full Stack Developer and B.Tech Computer Science graduate (2026) with hands-on experience building modern web applications from concept to deployment.
+        </p>
+        <p>
+          My journey in software development has been driven by a strong interest in creating scalable, user-focused solutions. I specialize in developing full-stack applications using <strong>Python, FastAPI, React.js, JavaScript, PostgreSQL, and Docker</strong>, with a focus on clean architecture, performance, and maintainability.
+        </p>
+        <p>
+          Currently, I am working as an <strong class="highlight">SDE Intern at BharatScales</strong>, where I contribute to designing and developing production-ready applications, building RESTful APIs, and delivering end-to-end features. I have also gained experience in software testing, debugging, and data validation through my AI Virtual Internship with IBM Skills Network.
+        </p>
+        <p>
+          Over time, I have built and deployed several projects, including an AI-powered Chess Game, an Attendance Management System, and a Personal Task Manager. These projects have strengthened my understanding of backend development, database design, API integration, and modern frontend technologies.
+        </p>
+        <p>
+          I enjoy solving real-world problems through technology and continuously improving my skills in software engineering, system design, cloud technologies, and modern development workflows. My goal is to grow as a software engineer while building products that create meaningful impact.
+        </p>
       </div>
-    </div>
 
-    <div class="divider"></div>
+      <div class="subsection">
+        <div class="sec-label">// education</div>
+        <div class="sec-title subsection-title">Education</div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-timeline">
+              <div class="edu-dot"></div>
+              <div class="edu-line"></div>
+            </div>
+            <div class="edu-body">
+              <div class="edu-header">
+                <div class="edu-school">Pranveer Singh Institute of Technology (AKTU), Kanpur</div>
+                <div class="edu-date">2026</div>
+              </div>
+              <div class="edu-degree">B.Tech in Computer Science and Engineering — <span class="edu-score">70%</span></div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-timeline">
+              <div class="edu-dot"></div>
+            </div>
+            <div class="edu-body">
+              <div class="edu-header">
+                <div class="edu-school">Harmilap Mission School (CBSE), Kanpur</div>
+              </div>
+              <ul class="edu-entries">
+                <li>
+                  <span>Intermediate (Class XII) — <span class="edu-score">72%</span></span>
+                  <span class="edu-year">2021</span>
+                </li>
+                <li>
+                  <span>High School (Class X) — <span class="edu-score">75%</span></span>
+                  <span class="edu-year">2019</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="section">
+      <div class="subsection">
+        <div class="sec-label">// achievements</div>
+        <div class="sec-title subsection-title">Achievements</div>
+        <ul class="exp-bullets">
+          <li>Solved 300+ coding problems across LeetCode and HackerRank, strengthening problem-solving and algorithmic thinking.</li>
+          <li>Earned Python, SQL, and Problem Solving certifications on HackerRank.</li>
+          <li>Consistently practiced Data Structures and Algorithms through competitive coding platforms.</li>
+          <li>Strong understanding of arrays, strings, linked lists, trees, recursion, and dynamic programming concepts.</li>
+          <li>Developed analytical and debugging skills through real-world programming challenges.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
       <div class="sec-label">// experience</div>
       <div class="sec-title">Experience</div>
       <div class="exp-list">
-
         <div class="exp-item">
           <div class="exp-timeline">
             <div class="exp-dot"></div>
@@ -199,7 +248,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-item">
           <div class="exp-timeline">
             <div class="exp-dot"></div>
@@ -209,22 +257,21 @@
               <div class="exp-role-title">AI Virtual Internship (PBEL) – IBM Skills Network</div>
               <div class="exp-date">July 2025 – Aug 2025</div>
             </div>
-            <a class="exp-cert-link" href="#">Certificate.</a>
             <ul class="exp-bullets">
               <li>Performed data entry and validation on real-world datasets, applying structured problem-solving to ensure data accuracy and integrity in analytical outputs.</li>
               <li>Monitored data quality metrics and applied testing techniques to identify discrepancies, improving reliability of model outputs.</li>
             </ul>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <div class="divider"></div>
-
-    <div class="section">
+    <section id="projects" class="section">
       <div class="sec-label">// projects</div>
-      <div class="sec-title">Projects</div>
+      <div class="sec-title">Things I've Built</div>
+      <p class="page-intro">
+        A selection of backend systems, full-stack apps, and machine learning projects — from multi-tenant APIs and task management to AI-powered games.
+      </p>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -232,26 +279,24 @@
             <div class="project-name">Multi-Tenant Attendance Management System</div>
             <div class="project-year">2026</div>
           </div>
-          <div class="project-meta">
-            <div class="project-stack">
-              <span class="stack-pill">FastAPI</span>
-              <span class="stack-pill">PostgreSQL</span>
-              <span class="stack-pill">JWT Authentication</span>
-              <span class="stack-pill">Python</span>
-            </div>
-            <div class="project-links">
-              <a class="proj-link" href="https://github.com/ayushman7985/Attendence-System" target="_blank" rel="noopener noreferrer">
-                <i class="ti ti-brand-github"></i> GitHub
-              </a>
-              <a class="proj-link" href="https://attendence-system-phi.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <i class="ti ti-external-link"></i> Live Demo
-              </a>
-            </div>
+          <p class="project-desc">
+            A secure, multi-tenant system for tracking employee attendance with isolated org-level data access. Features JWT-based auth, RBAC, and scalable RESTful APIs ensuring data accuracy across all tenants.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">JWT</span>
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">RBAC</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Built a multi-tenant system to securely manage and track employee attendance records with isolated, organization-level data access, ensuring data accuracy and integrity across tenants.</li>
-            <li>Designed scalable RESTful APIs with JWT-based authentication and role-based access control (RBAC) to manage attendance operations and user permissions efficiently.</li>
-          </ul>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/Attendence-System" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+            <a class="proj-link" href="https://attendence-system-phi.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Live Demo
+            </a>
+          </div>
         </div>
 
         <div class="project-card">
@@ -259,53 +304,220 @@
             <div class="project-name">Neural-Mate: AI-Powered Chess Game</div>
             <div class="project-year">2025</div>
           </div>
-          <div class="project-meta">
-            <div class="project-stack">
-              <span class="stack-pill">Python</span>
-              <span class="stack-pill">FastAPI</span>
-              <span class="stack-pill">React</span>
-              <span class="stack-pill">Vite</span>
-              <span class="stack-pill">python-chess</span>
-              <span class="stack-pill">Minimax</span>
-              <span class="stack-pill">Alpha-Beta Pruning</span>
-            </div>
-            <div class="project-links">
-              <a class="proj-link" href="https://github.com/ayushman7985/Neural-Mate" target="_blank" rel="noopener noreferrer">
-                <i class="ti ti-brand-github"></i> GitHub
-              </a>
-              <a class="proj-link" href="https://neural-mate-nine.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <i class="ti ti-external-link"></i> Live Demo
-              </a>
-            </div>
+          <p class="project-desc">
+            Full-stack chess app with a custom AI engine using Minimax + Alpha-Beta Pruning. Supports selectable difficulty levels, real-time gameplay, and full move validation via REST APIs.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">Minimax</span>
+            <span class="stack-pill">Alpha-Beta</span>
+            <span class="stack-pill">python-chess</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Developed a full-stack AI-powered chess application using React, FastAPI, and python-chess, enabling real-time gameplay with selectable difficulty levels and color preferences.</li>
-            <li>Implemented a Minimax-based chess engine with Alpha-Beta Pruning and built REST APIs for move validation, game-state management, and AI move generation.</li>
-          </ul>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/Neural-Mate" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+            <a class="proj-link" href="https://neural-mate-nine.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Personal Task Manager</div>
+            <div class="project-year">2026</div>
+          </div>
+          <p class="project-desc">
+            A full-stack personal task manager with a cyberpunk-inspired UI. Create, organize, and track tasks with priorities, due dates, filtering, sorting, and drag-and-drop reordering — all persisted in SQLite with no login required.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">Vite</span>
+            <span class="stack-pill">SQLite</span>
+            <span class="stack-pill">@dnd-kit</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/Personal-Task-Manager" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+            <a class="proj-link" href="https://personal-task-manager-9x36.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">BookRecs — Book Recommendation System</div>
+            <div class="project-year">2026</div>
+          </div>
+          <p class="project-desc">
+            A full-stack book recommendation app with content-based search (TF-IDF), collaborative filtering on 6M+ goodbooks-10k ratings, personalized home rails, and star ratings. Features JWT auth with My Books, Wishlist, and History synced to PostgreSQL.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">scikit-learn</span>
+            <span class="stack-pill">Docker</span>
+            <span class="stack-pill">JWT</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/BookRecs" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Salary Prediction Using Ensemble Learning</div>
+            <div class="project-year">2025</div>
+          </div>
+          <p class="project-desc">
+            A machine learning project that predicts salaries from experience, education, test scores, and interview performance. Applied ensemble techniques including Random Forest and Gradient Boosting with data preprocessing, feature selection, and model evaluation to improve prediction accuracy.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">Scikit-learn</span>
+            <span class="stack-pill">Pandas</span>
+            <span class="stack-pill">Matplotlib</span>
+            <span class="stack-pill">Machine Learning</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/Salary-Prediction-using-Ensemble-learning" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Bank Account Simulation System</div>
+            <div class="project-year">2025</div>
+          </div>
+          <p class="project-desc">
+            A Java-based banking system simulating real-world operations such as account creation, deposits, and withdrawals. Built with object-oriented design principles — inheritance, polymorphism, encapsulation, and abstraction — for modular, reusable code and reliable transactional workflows.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">Java</span>
+            <span class="stack-pill">OOP</span>
+            <span class="stack-pill">Inheritance</span>
+            <span class="stack-pill">Polymorphism</span>
+            <span class="stack-pill">Encapsulation</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/ayushman7985/-Bank-Account-Simulation" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+          </div>
         </div>
 
       </div>
-    </div>
+    </section>
 
-    <div class="divider"></div>
+    <section id="contact" class="section">
+      <div class="sec-label">// contact</div>
+      <div class="sec-title">Let's Connect</div>
+      <p class="page-intro">
+        Have a project in mind or want to discuss an opportunity? Reach out — I'd love to hear from you.
+      </p>
 
-    <div class="section">
-      <div class="sec-label">// achievements</div>
-      <div class="sec-title">Achievements</div>
-      <ul class="exp-bullets">
-        <li>Solved 300+ coding problems across LeetCode and HackerRank, strengthening problem-solving and algorithmic thinking.</li>
-        <li>Earned Python, SQL, and Problem Solving certifications on HackerRank.</li>
-        <li>Consistently practiced Data Structures and Algorithms through competitive coding platforms.</li>
-        <li>Strong understanding of arrays, strings, linked lists, trees, recursion, and dynamic programming concepts.</li>
-        <li>Regularly use LeetCode and HackerRank to improve coding efficiency and interview preparation.</li>
-        <li>Developed analytical and debugging skills through real-world programming challenges.</li>
-      </ul>
-    </div>
+      <div class="connect-list">
+        <div class="connect-item">
+          <div class="connect-icon-box">
+            <i class="ti ti-map-pin"></i>
+          </div>
+          <div class="connect-body">
+            <div class="connect-label">Location</div>
+            <div class="connect-value">Kanpur, India · open to relocate</div>
+          </div>
+        </div>
+
+        <a class="connect-item connect-link" href="mailto:shuklaayushman7@gmail.com">
+          <div class="connect-icon-box">
+            <i class="ti ti-mail"></i>
+          </div>
+          <div class="connect-body">
+            <div class="connect-label">Email</div>
+            <div class="connect-value">shuklaayushman7@gmail.com</div>
+          </div>
+        </a>
+
+        <a class="connect-item connect-link" href="tel:+917985980646">
+          <div class="connect-icon-box">
+            <i class="ti ti-phone"></i>
+          </div>
+          <div class="connect-body">
+            <div class="connect-label">Phone</div>
+            <div class="connect-value">+91 7985980646</div>
+          </div>
+        </a>
+
+        <div class="connect-item">
+          <div class="connect-icon-box">
+            <i class="ti ti-briefcase"></i>
+          </div>
+          <div class="connect-body">
+            <div class="connect-label">Availability</div>
+            <div class="connect-value">Open for full-time &amp; internships</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connect-status">
+        <span class="status-dot"></span>
+        Open for opportunities
+      </div>
+    </section>
+
+    <footer class="footer">
+      // built with intention · ayushman shukla · 2026
+    </footer>
   </main>
 
-  <div class="footer">
-    // built with intention · ayushman shukla · 2026
-  </div>
+  <script>
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+    const toggle = document.querySelector('.sidebar-toggle');
+    const links = document.querySelectorAll('.sidebar-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          links.forEach(link => {
+            link.classList.toggle('active', link.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
 </html>

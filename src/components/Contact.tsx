@@ -1,22 +1,53 @@
 import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Mail, Phone, Briefcase, Send } from 'lucide-react'
+import { MapPin, Mail, Phone, Briefcase, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { profile } from '../data/content'
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    )
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
-    setSent(true)
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio contact from ${name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+
+      const data = (await res.json()) as { success?: string | boolean; message?: string }
+
+      if (!res.ok || data.success === 'false' || data.success === false) {
+        throw new Error(data.message || 'Failed to send message')
+      }
+
+      setStatus('success')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Try again.')
+    }
   }
 
   return (
@@ -99,6 +130,7 @@ export default function Contact() {
               placeholder="Your name"
               required
               autoComplete="name"
+              disabled={status === 'loading'}
             />
           </div>
           <div>
@@ -114,6 +146,7 @@ export default function Contact() {
               placeholder="you@example.com"
               required
               autoComplete="email"
+              disabled={status === 'loading'}
             />
           </div>
           <div>
@@ -127,13 +160,38 @@ export default function Contact() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell me about your project or opportunity..."
               required
+              disabled={status === 'loading'}
             />
           </div>
+
+          {status === 'success' && (
+            <div className="flex items-start gap-2 text-sm text-[#00f0ff] font-mono">
+              <CheckCircle2 size={16} className="mt-0.5 shrink-0" />
+              Message sent! It will arrive in {profile.email}.
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="flex items-start gap-2 text-sm text-[#ff6b9d] font-mono">
+              <AlertCircle size={16} className="mt-0.5 shrink-0" />
+              {errorMsg}
+            </div>
+          )}
+
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[var(--cyan)] text-[#05070d] font-semibold text-sm hover:bg-[#5ff7ff] transition-colors"
+            disabled={status === 'loading'}
+            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[var(--cyan)] text-[#05070d] font-semibold text-sm hover:bg-[#5ff7ff] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <Send size={16} /> {sent ? 'Opening email…' : 'Send Message'}
+            {status === 'loading' ? (
+              <>
+                <Loader2 size={16} className="animate-spin" /> Sending…
+              </>
+            ) : (
+              <>
+                <Send size={16} /> Send Message
+              </>
+            )}
           </button>
         </motion.form>
       </div>

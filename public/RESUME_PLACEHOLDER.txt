@@ -1,0 +1,4 @@
+# Resume PDF
+#
+# Drop your resume file here as: public/resume.pdf
+# The Download Resume buttons already point to /resume.pdf

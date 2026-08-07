@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05070d;
+  --bg-elevated: #0a0e18;
+  --bg-card: #0c1220;
+  --border: #1a2438;
+  --border-glow: #00f0ff55;
+  --cyan: #00f0ff;
+  --magenta: #ff2bd6;
+  --text: #c8d4e8;
+  --text-muted: #6b7c96;
+  --text-bright: #eaf0fc;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #00f0ff44;
+  color: var(--text-bright);
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Atmosphere */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
+}
+
+.scanlines::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  opacity: 0.35;
+}
+
+.neon-text {
+  color: var(--cyan);
+  text-shadow: 0 0 12px #00f0ff66;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.section-pad {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 6rem 2.5rem;
+  }
+}
+
+.sec-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 0 0 2.5rem;
+}
+
+/* Cursor glow */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 40;
+  mix-blend-mode: screen;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 768px) {
+  .cursor-glow {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cursor-glow,
+  .scanlines::after {
+    display: none !important;
+  }
+}
+
+/* Particles canvas */
+#tsparticles {
+  position: fixed !important;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Code editor syntax */
+.code-comment { color: #5a6a80; }
+.code-keyword { color: #ff2bd6; }
+.code-fn { color: #00f0ff; }
+.code-param { color: #eaf0fc; }
+.code-type { color: #7dd3fc; }
+.code-string { color: #a3e635; }
+.code-plain { color: #c8d4e8; }
+
+.typing-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--cyan);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #00f0ff88; }
+  50% { opacity: 0.5; box-shadow: 0 0 4px #00f0ff44; }
+}
+
+.status-pulse {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Form inputs */
+.cyber-input {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cyber-input:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px #00f0ff33, 0 0 20px #00f0ff15;
+}
+
+.cyber-input::placeholder {
+  color: var(--text-muted);
+}
+
+textarea.cyber-input {
+  min-height: 120px;
+  resize: vertical;
+}

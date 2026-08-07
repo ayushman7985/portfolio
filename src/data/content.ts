@@ -10,7 +10,8 @@ export const profile = {
   location: 'Kanpur, India · open to relocate',
   availability: 'Open for full-time & internships',
   github: 'https://github.com/ayushman7985',
-  resumePath: '/resume.pdf',
+  resumePath:
+    'https://drive.google.com/uc?export=download&id=1kMDQxcmvNHGbmbeRhVLTynebFpTEwqqR',
   avatar: '/profile.png',
 }
 

@@ -64,7 +64,8 @@ export default function Navbar() {
             ))}
             <a
               href={profile.resumePath}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-3 px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--cyan)] text-[#05070d] hover:bg-[#5ff7ff] transition-colors"
             >
               Resume
@@ -123,7 +124,8 @@ export default function Navbar() {
               </nav>
               <a
                 href={profile.resumePath}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={close}
                 className="mb-4 w-full text-center px-4 py-3 text-sm font-semibold rounded-lg bg-[var(--cyan)] text-[#05070d]"
               >

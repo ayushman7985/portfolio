@@ -64,7 +64,8 @@ export default function Hero() {
             </a>
             <a
               href={profile.resumePath}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2a3650] text-[#c8d4e8] text-sm font-medium hover:border-[var(--cyan)] hover:text-[var(--cyan)] transition-colors"
             >
               <Download size={16} /> Resume

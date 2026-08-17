@@ -35,9 +35,9 @@ export default function AnimatedCodeEditor() {
   }, [snippet])
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setReduceMotion(mq.matches)
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 768px)')
     const onChange = () => setReduceMotion(mq.matches)
+    onChange()
     mq.addEventListener('change', onChange)
     return () => mq.removeEventListener('change', onChange)
   }, [])
@@ -67,14 +67,14 @@ export default function AnimatedCodeEditor() {
   const shown = flatTokens.slice(0, visibleCount)
 
   return (
-    <div className="w-full max-w-md rounded-xl overflow-hidden border border-[#1a2438] bg-[#080c16]/95 shadow-[0_0_40px_#00f0ff18] backdrop-blur-sm">
+    <div className="w-full min-w-0 max-w-md rounded-xl overflow-hidden border border-[#1a2438] bg-[#080c16] md:bg-[#080c16]/95 md:shadow-[0_0_40px_#00f0ff18]">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-[#1a2438] bg-[#0a0e18]">
         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-        <span className="ml-3 font-mono text-xs text-[#6b7c96]">{snippet.filename}</span>
+        <span className="ml-3 font-mono text-xs text-[#6b7c96] truncate">{snippet.filename}</span>
       </div>
-      <pre className="p-5 font-mono text-[13px] leading-relaxed min-h-[180px] overflow-hidden">
+      <pre className="p-4 sm:p-5 font-mono text-[12px] sm:text-[13px] leading-relaxed min-h-[180px] overflow-x-auto whitespace-pre-wrap break-words">
         <code>
           {shown.map((token, idx) => (
             <TokenSpan key={`${snippetIndex}-${idx}`} token={token} />

@@ -19,7 +19,7 @@ export default function Projects() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5 min-w-0">
         {projects.map((project, i) => (
           <motion.article
             key={project.name}
@@ -27,10 +27,10 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
-            className="group relative p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220]/80 backdrop-blur-sm transition-all duration-300 hover:border-[#00f0ff55] hover:-translate-y-1 hover:shadow-[0_0_30px_#00f0ff15]"
+            className="group relative p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220] md:bg-[#0c1220]/80 transition-[border-color,box-shadow,transform] duration-300 hover:border-[#00f0ff55] md:hover:-translate-y-1 md:hover:shadow-[0_0_30px_#00f0ff15]"
           >
             <div className="flex justify-between items-start gap-3 mb-3">
-              <h3 className="text-base font-semibold text-[#eaf0fc] group-hover:text-[var(--cyan)] transition-colors">
+              <h3 className="text-base font-semibold text-[#eaf0fc] group-hover:text-[var(--cyan)] transition-colors break-words">
                 {project.name}
               </h3>
               <span className="font-mono text-xs text-[#4a5a70] bg-[#1a2a40] px-2.5 py-1 rounded shrink-0">

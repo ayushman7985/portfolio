@@ -14,7 +14,7 @@ export default function About() {
         <h2 className="sec-title">About Me</h2>
       </motion.div>
 
-      <div className="grid lg:grid-cols-[200px_1fr] gap-10 items-start">
+      <div className="grid lg:grid-cols-[200px_1fr] gap-10 items-start min-w-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -22,7 +22,7 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mx-auto lg:mx-0"
         >
-          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[#00f0ff44] shadow-[0_0_30px_#00f0ff22]">
+          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[#00f0ff44] md:shadow-[0_0_30px_#00f0ff22]">
             <img
               src={profile.avatar}
               alt={profile.name}
@@ -30,6 +30,7 @@ export default function About() {
               height={192}
               className="w-full h-full object-cover object-top"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </motion.div>
@@ -39,7 +40,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-4 text-[15px] text-[#8898b0] leading-relaxed max-w-2xl"
+          className="space-y-4 text-[15px] text-[#8898b0] leading-relaxed w-full max-w-2xl min-w-0"
         >
           {aboutParagraphs.map((p, i) => (
             <p key={i}>

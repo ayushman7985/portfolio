@@ -37,14 +37,14 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
           scrolled
-            ? 'bg-[#05070d]/85 backdrop-blur-md border-b border-[#1a2438]'
+            ? 'bg-[#05070d] md:bg-[#05070d]/85 md:backdrop-blur-md border-b border-[#1a2438]'
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1100px] mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
-          <a href="#home" className="font-display text-sm md:text-base font-semibold tracking-wider text-[#eaf0fc]">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-5 md:px-8 h-16 flex items-center justify-between gap-3 min-w-0">
+          <a href="#home" className="font-display text-sm md:text-base font-semibold tracking-wider text-[#eaf0fc] shrink-0">
             AYUSHMAN<span className="text-[var(--cyan)]">.DEV</span>
           </a>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-[#1a2438] bg-[#0a0e18] text-[#eaf0fc]"
+            className="md:hidden w-10 h-10 shrink-0 flex items-center justify-center rounded-lg border border-[#1a2438] bg-[#0a0e18] text-[#eaf0fc]"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
           >

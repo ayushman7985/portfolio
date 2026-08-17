@@ -66,7 +66,7 @@ export default function Contact() {
         </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-10">
+      <div className="grid lg:grid-cols-2 gap-10 min-w-0">
         <motion.div
           initial={{ opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ export default function Contact() {
             )
           })}
 
-          <div className="inline-flex items-center gap-2.5 mt-2 px-4 py-2.5 rounded-full border border-[#00f0ff44] font-mono text-sm text-[var(--cyan)]">
+          <div className="inline-flex items-center gap-2.5 mt-2 px-4 py-2.5 rounded-full border border-[#00f0ff44] font-mono text-sm text-[var(--cyan)] max-w-full">
             <span className="w-2 h-2 rounded-full bg-[var(--cyan)] status-pulse" />
             Open for opportunities
           </div>

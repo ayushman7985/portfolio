@@ -67,7 +67,7 @@ export default function AnimatedCodeEditor() {
   const shown = flatTokens.slice(0, visibleCount)
 
   return (
-    <div className="w-full min-w-0 max-w-md rounded-xl overflow-hidden border border-[#1a2438] bg-[#080c16] md:bg-[#080c16]/95 md:shadow-[0_0_40px_#00f0ff18]">
+    <div className="w-full min-w-0 max-w-md rounded-xl overflow-hidden border border-[#1a2438] bg-[#080c16]">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-[#1a2438] bg-[#0a0e18]">
         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />

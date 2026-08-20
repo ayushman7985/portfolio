@@ -27,7 +27,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
-            className="group relative p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220] md:bg-[#0c1220]/80 transition-[border-color,box-shadow,transform] duration-300 hover:border-[#00f0ff55] md:hover:-translate-y-1 md:hover:shadow-[0_0_30px_#00f0ff15]"
+            className="group relative p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220] transition-[border-color,transform] duration-300 hover:border-[#00f0ff55] md:hover:-translate-y-1"
           >
             <div className="flex justify-between items-start gap-3 mb-3">
               <h3 className="text-base font-semibold text-[#eaf0fc] group-hover:text-[var(--cyan)] transition-colors break-words">

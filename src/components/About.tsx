@@ -22,7 +22,7 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mx-auto lg:mx-0"
         >
-          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[#00f0ff44] md:shadow-[0_0_30px_#00f0ff22]">
+          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[#00f0ff44]">
             <img
               src={profile.avatar}
               alt={profile.name}

@@ -93,7 +93,7 @@ export default function Contact() {
               </>
             )
             const className =
-              'flex items-center gap-4 p-4 rounded-xl border border-[#1a2a40] bg-[#0c1220]/80 transition-colors'
+              'flex items-center gap-4 p-4 rounded-xl border border-[#1a2a40] bg-[#0c1220] transition-colors'
             return item.href ? (
               <a key={item.label} href={item.href} className={`${className} hover:border-[#00f0ff55]`}>
                 {Inner}
@@ -116,7 +116,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           onSubmit={onSubmit}
-          className="space-y-4 p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220]/80"
+          className="space-y-4 p-6 rounded-xl border border-[#1a2a40] bg-[#0c1220]"
         >
           <div>
             <label htmlFor="name" className="block font-mono text-xs text-[#6b7c96] mb-2">

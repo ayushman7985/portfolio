@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { MotionConfig } from 'framer-motion'
 import CursorGlow from './components/CursorGlow'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -16,23 +17,25 @@ export default function App() {
   const lite = useLiteMode()
 
   return (
-    <div className="scanlines relative min-h-screen max-w-full overflow-x-clip">
-      {!lite && (
-        <Suspense fallback={null}>
-          <ParticleBackground />
-        </Suspense>
-      )}
-      {!lite && <CursorGlow />}
-      <Navbar />
-      <main className="relative z-10 min-w-0 max-w-full">
-        <Hero />
-        <Skills />
-        <About />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <MotionConfig reducedMotion="user" transition={{ duration: 0.4, ease: 'easeOut' }}>
+      <div className="relative min-h-screen max-w-full overflow-x-clip">
+        {!lite && (
+          <Suspense fallback={null}>
+            <ParticleBackground />
+          </Suspense>
+        )}
+        {!lite && <CursorGlow />}
+        <Navbar />
+        <main className="relative z-10 min-w-0 max-w-full">
+          <Hero />
+          <Skills />
+          <About />
+          <Experience />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </MotionConfig>
   )
 }

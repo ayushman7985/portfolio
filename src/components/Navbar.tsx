@@ -9,7 +9,17 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 24
+        setScrolled((prev) => (prev === next ? prev : next))
+        ticking = false
+      })
+    }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -39,7 +49,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
           scrolled
-            ? 'bg-[#05070d] md:bg-[#05070d]/85 md:backdrop-blur-md border-b border-[#1a2438]'
+            ? 'bg-[#05070d] border-b border-[#1a2438]'
             : 'bg-transparent'
         }`}
       >
